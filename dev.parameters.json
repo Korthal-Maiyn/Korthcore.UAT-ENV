@@ -1,0 +1,60 @@
+﻿{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "env": {
+        "value": "dev"
+      },
+      "virtualMachineSize": {
+        "value": "Standard_DS2_v2"
+      },
+      "resourceTags": {
+        "value": {
+          "nic":  {
+            "Owner": "Owner 1",
+            "Contact": "email@provider.com",
+            "Purpose": "A nic."
+          },
+          "vm":  {
+            "Owner": "Owner 2",
+            "Contact": "email@provider.com",
+            "Purpose": "A Virtual Machine."
+          },
+          "vnet":  {
+            "Owner": "Owner 3",
+            "Contact": "email@provider.com",
+            "Purpose": "The Virtual Network for the Lab."
+          },
+          "nsg":  {
+            "Owner": "Owner 1",
+            "Contact": "email@provider.com",
+            "Purpose": "The Network Security Group for the Lab."
+          }
+        }
+      },
+      "adminPassword": {
+        "reference": {
+          "keyVault": {
+            "id": "add your keyvault id here"
+          },
+          "secretName": "adminPassword"
+        }
+      },
+      "domainServicesSasToken": {
+        "reference": {
+          "keyVault": {
+            "id": "add your keyvault id here"
+          },
+          "secretName": "domainServicesSasToken"
+        }
+      },
+      "joinDomainSasToken": {
+        "reference": {
+          "keyVault": {
+            "id": "add your keyvault id here"
+          },
+          "secretName": "joinDomainSasToken"
+        }
+      }
+    }
+  }
